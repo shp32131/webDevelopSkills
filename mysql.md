@@ -11,11 +11,11 @@
 > 什么是数据库？  
 > 高效存储和处理数据的介质(硬盘,内存) 
 - 关系型数据 SQL:数据存储载体为硬盘 
-  + 大型 Orace,DB2 
+  + 大型 Oracle,DB2 
   + 中型 SQL-SERVER,Mysql 
-  + 小型 Acccess 
+  + 小型 Access 
 - 非关系型数据库 NoSQL:数据保存在内存中,掉电丢失 
-  + Redis,Mongdb,memcached 
+  + Redis,MongDb,memcached 
 > 什么是关系型数据库?  
 > 一种建立在关系模型上的数据库  
 - 关系模型:一种建立在关系上的数学模型 
@@ -36,7 +36,7 @@
 - DDL data definition language 数据定义语言 
   + 维护存储数据的结构 
   + 指令有 create drop alter 
-- DML data manippulation language 数据操作语言 
+- DML data manipulation language 数据操作语言 
   + 对数据进行操作(数据表中的内容)
   + 指令 insert  delete update select 
 - DCL data control language 数据控制语言 
@@ -55,7 +55,7 @@
 ### 数据库操作
 - `create database demo [库选项]` 
 - 库选项: 用来约束数据库，分为两个库选项 
-  + 字符集设定 `charactor set/charset gbk/utf8` 数据库存储数据的编码格式 
+  + 字符集设定 `character set/charset gbk/utf8` 数据库存储数据的编码格式 
   + 校对集设置 `collate utf8_general_ci` 
   + _bin 二进制,_ci 大小写不敏感,_cs 大小写敏感 
 ```sql
