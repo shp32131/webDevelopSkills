@@ -88,3 +88,46 @@ characteristic.startNotifications();
     </script>
 </body>
 ```
+- `let enumeratorPromise = navigator.mediaDevices.enumerateDevices()` 获取系统上的媒体输入输出设备信息 
+  + 返回一个promise 结果
+```JavaScript
+if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+  console.log("不支持 enumerateDevices() .");
+  return;
+}
+
+// 列出相机和麦克风。
+
+navigator.mediaDevices.enumerateDevices()
+.then(function(devices) {
+  devices.forEach(function(device) {
+    console.log(device.kind + ": " + device.label +
+                " id = " + device.deviceId);
+  });
+})
+.catch(function(err) {
+  console.log(err.name + ": " + err.message);
+});
+
+// 输出
+//videoinput: id = csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=
+//audioinput: id = RKxXByjnabbADGQNNZqLVLdmXlS0YkETYCIbg+XxnvM=
+//audioinput: id = r2/xw1xUPIyZunfV1lGrKOma5wTOvCkWfZ368XCndm0=
+```
+- `let mediaRecorder = new mediaRecorder(stream[,options])` 创建一个指定`MediaStream`进行录制的`mediaRecorder`对象
+- stream
+MediaStream 将要录制的流. 它可以是来自于使用 navigator.mediaDevices.getUserMedia() 创建的流或者来自于 <audio>, <video> 以及 <canvas> DOM元素.
+```JavaScript
+if (navigator.mediaDevices.getUserMedia) {
+  var constraints = { audio: true, video: true };
+  var chunks = [];
+
+  var onSuccess = function(stream) {
+    var options = {
+      audioBitsPerSecond : 128000,
+      videoBitsPerSecond : 2500000,
+      mimeType : 'video/mp4'
+    }
+    var mediaRecorder = new MediaRecorder(stream,options);
+    m = mediaRecorder;
+```
